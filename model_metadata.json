@@ -1,0 +1,16 @@
+{
+  "model": "RandomForestRegressor",
+  "target": "revenue",
+  "features": [
+    "employees",
+    "employees_year",
+    "company_type",
+    "enterprise_group_jurisdiction",
+    "enterprise_group_entity_status",
+    "legal_units_count",
+    "direct_subsidiaries_count",
+    "max_hierarchy_depth",
+    "is_standalone_entity"
+  ],
+  "note": "Revenue is in the source data's reported currencies; it is not normalized to USD."
+}

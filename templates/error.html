@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Model unavailable | Revenue Predictor{% endblock %}
+{% block content %}
+<section class="card">
+  <h1>Model unavailable</h1>
+  <p>{{ message }}</p>
+  <a class="button secondary" href="{{ url_for('home') }}">Back to home</a>
+</section>
+{% endblock %}

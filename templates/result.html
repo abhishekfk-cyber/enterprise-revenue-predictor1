@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Prediction result | Revenue Predictor{% endblock %}
+{% block content %}
+<section class="card result-card">
+  <p class="eyebrow">Prediction result</p>
+  <h1>Estimated annual revenue</h1>
+  <p class="prediction-value">{{ prediction }}</p>
+  <p class="notice">
+    This estimate is in the source dataset's reported units; it is not guaranteed
+    to be USD or another specific currency.
+  </p>
+  <a class="button secondary" href="{{ url_for('predict_form') }}">Make another prediction</a>
+</section>
+{% endblock %}

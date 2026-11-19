@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Predict revenue | Revenue Predictor{% endblock %}
+{% block content %}
+<section class="card">
+  <p class="eyebrow">Prediction</p>
+  <h1>Enter enterprise details</h1>
+  <p class="muted">Complete each field using values similar to the training data.</p>
+
+  {% if errors %}
+  <div class="error-box" role="alert">
+    <strong>Please correct the following:</strong>
+    <ul>
+      {% for error in errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <form action="{{ url_for('result') }}" method="post">
+    <div class="form-grid">
+      {% for field in fields %}
+      <div class="form-field">
+        <label for="{{ field.name }}">{{ field.label }}</label>
+        {% if field.kind == "boolean" %}
+        <select id="{{ field.name }}" name="{{ field.name }}" required>
+          <option value="">Select an option</option>
+          <option value="true" {% if field.value == "true" %}selected{% endif %}>Yes</option>
+          <option value="false" {% if field.value == "false" %}selected{% endif %}>No</option>
+        </select>
+        {% elif field.kind == "number" %}
+        <input id="{{ field.name }}" name="{{ field.name }}" type="number"
+               step="any" value="{{ field.value }}" required>
+        {% else %}
+        <input id="{{ field.name }}" name="{{ field.name }}" type="text"
+               value="{{ field.value }}" required>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    <button class="button" type="submit">Predict annual revenue</button>
+  </form>
+</section>
+{% endblock %}

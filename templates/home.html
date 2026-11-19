@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Project overview | Revenue Predictor{% endblock %}
+{% block content %}
+<section class="card hero">
+  <p class="eyebrow">Machine learning project</p>
+  <h1>Enterprise Revenue Predictor</h1>
+  <p>
+    Estimate annual revenue from enterprise size, structure, status, and
+    jurisdiction information.
+  </p>
+  <a class="button" href="{{ url_for('predict_form') }}">Start a prediction</a>
+</section>
+
+<section class="card">
+  <h2>About this model</h2>
+  <p>
+    This demo uses a Random Forest regression model with the saved preprocessing
+    steps. Enter the enterprise features on the prediction page to get an estimate.
+  </p>
+  <p class="notice">
+    The training data contains multiple reported currencies. Predictions are in
+    source-data units and are not normalized to USD.
+  </p>
+</section>
+{% endblock %}
